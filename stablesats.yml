@@ -1,85 +1,85 @@
-## This file documents the defaults:
+# This file documents the defaults:
 
-# pubsub:
-  # host: localhost
-  # rate_limit_duration: 2
+pubsub:
+  host: localhost
+  rate_limit_duration: 2
 
-# db:
-#   pool_size: 20
-#   migrate_on_start: true
-#
+db:
+  pool_size: 20
+  migrate_on_start: true
 
-# galoy:
-#   api: galoy-endpoint
-#   phone_number: "+0123456"
 
-# user_trades:
-#   enabled: true
-#   config:
-#     balance_publish_frequency: 5
-#     galoy_poll_frequency: 5
-#
-# hedging:
-#   enabled: true
-#   config:
-#     health:
-#       unhealthy_msg_interval_liability: 20
-#       unhealthy_msg_interval_position: 20
-#       unhealthy_msg_interval_price: 20
+galoy:
+  api: galoy-endpoint
+  phone_number: "+16505554328"
 
-# price_server:
-  # enabled: true
-  # server:
-  #   listen_port: 3325
-  # health:
-  #   unhealthy_msg_interval_price: 20
-  # fees:
-  #   base_fee_rate: 0.0005
-  #   immediate_fee_rate: 0.0005
-  #   delayed_fee_rate: 0.0007
-  # price_cache:
-  #   stale_after: 30
+user_trades:
+  enabled: true
+  config:
+    balance_publish_frequency: 5
+    galoy_poll_frequency: 5
 
-# okex_price_feed:
-  # enabled: true
-  # config:
-  #   url: "wss://ws.okx.com:8443/ws/v5/public"
+hedging:
+  enabled: true
+  config:
+    health:
+      unhealthy_msg_interval_liability: 20
+      unhealthy_msg_interval_position: 20
+      unhealthy_msg_interval_price: 20
 
-# bitfinex_price_feed:
-  # enabled: true
-  # config:
-  #   url: "wss://api-pub.bitfinex.com/ws/2"
+price_server:
+  enabled: true
+  server:
+    listen_port: 3325
+  health:
+    unhealthy_msg_interval_price: 20
+  fees:
+    base_fee_rate: 0.0005
+    immediate_fee_rate: 0.0005
+    delayed_fee_rate: 0.0007
+  price_cache:
+    stale_after: 30
 
-# tracing:
-#   host: "localhost"
-#   port: 6831
-#   service_name: "stablesats-dev"
+okex_price_feed:
+  enabled: true
+  config:
+    url: "wss://ws.okx.com:8443/ws/v5/public"
 
-# exchanges:
-#   okex:
-#     weight: 1.0
-#     config:
-#       client:
-#         api_key: okex api
-#         simulated: false
-#       poll_frequency: 10
-#       hedging:
-#         low_bound_ratio_shorting: 0.98
-#         low_safebound_ratio_shorting: 1.00
-#         high_safebound_ratio_shorting: 1.00
-#         high_bound_ratio_shorting: 1.02
-#         minimum_liability_threshold_cents: 5000
-#       funding:
-#         minimum_transfer_amount_cents: 10000
-#         minimum_funding_balance_btc: 1.0
-#         low_bound_ratio_leverage: 2.0
-#         low_safebound_ratio_leverage: 3.0
-#         high_safebound_ratio_leverage: 3.0
-#         high_bound_ratio_leverage: 4.0
-#         high_bound_buffer_percentage: 0.9
-#         deposit_lost_timeout_seconds: 3600
-#   bitfinex:
-#     weight: 0.0
-#     config:
-#       api_key: bitfinex api
-#       simulated: false
+bitfinex_price_feed:
+  enabled: true
+  config:
+    url: "wss://api-pub.bitfinex.com/ws/2"
+
+tracing:
+  host: "localhost"
+  port: 6831
+  service_name: "stablesats-dev"
+
+exchanges:
+  okex:
+    weight: 1.0
+    config:
+      client:
+        api_key: okex api
+        simulated: true
+      poll_frequency: 10
+      hedging:
+        low_bound_ratio_shorting: 0.98
+        low_safebound_ratio_shorting: 1.00
+        high_safebound_ratio_shorting: 1.00
+        high_bound_ratio_shorting: 1.02
+        minimum_liability_threshold_cents: 5000
+      funding:
+        minimum_transfer_amount_cents: 10000
+        minimum_funding_balance_btc: 1.0
+        low_bound_ratio_leverage: 2.0
+        low_safebound_ratio_leverage: 3.0
+        high_safebound_ratio_leverage: 3.0
+        high_bound_ratio_leverage: 4.0
+        high_bound_buffer_percentage: 0.9
+        deposit_lost_timeout_seconds: 3600
+  bitfinex:
+    weight: 0.0
+    config:
+      api_key: bitfinex api
+      simulated: false

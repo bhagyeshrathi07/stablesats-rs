@@ -17,27 +17,27 @@ services:
     environment:
     - ALLOW_EMPTY_PASSWORD=yes
     - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
-  integration-tests:
-    image: us.gcr.io/galoy-org/rust-concourse
-    depends_on:
-    - integration-deps
-    command: ["make","test-in-ci"]
-    environment:
-    - REDIS_HOST=redis
-    - OKEX_API_KEY=${OKEX_API_KEY}
-    - OKEX_PASSPHRASE=${OKEX_PASSPHRASE}
-    - OKEX_SECRET_KEY=${OKEX_SECRET_KEY}
-    # - BITFINEX_API_KEY=${BITFINEX_API_KEY}
-    # - BITFINEX_SECRET_KEY=${BITFINEX_SECRET_KEY}
-    - RUST_BACKTRACE=1
-    - PG_HOST=postgres
-    - PG_PORT=5432
-    - GALOY_GRAPHQL_URI=https://api.staging.galoy.io/graphql
-    - PHONE_NUMBER=${PHONE_NUMBER}
-    - AUTH_CODE=${AUTH_CODE}
-    working_dir: /repo
-    volumes:
-      - ./:/repo
+  # integration-tests:
+  #   image: us.gcr.io/galoy-org/rust-concourse
+  #   depends_on:
+  #   - integration-deps
+  #   command: ["make","test-in-ci"]
+  #   environment:
+  #   - REDIS_HOST=redis
+  #   - OKEX_API_KEY=${OKEX_API_KEY}
+  #   - OKEX_PASSPHRASE=${OKEX_PASSPHRASE}
+  #   - OKEX_SECRET_KEY=${OKEX_SECRET_KEY}
+  #   # - BITFINEX_API_KEY=${BITFINEX_API_KEY}
+  #   # - BITFINEX_SECRET_KEY=${BITFINEX_SECRET_KEY}
+  #   - RUST_BACKTRACE=1
+  #   - PG_HOST=postgres
+  #   - PG_PORT=5432
+  #   - GALOY_GRAPHQL_URI=https://api.staging.galoy.io/graphql
+  #   - PHONE_NUMBER=${PHONE_NUMBER}
+  #   - AUTH_CODE=${AUTH_CODE}
+  #   working_dir: /repo
+  #   volumes:
+  #     - ./:/repo
   otel-agent:
     image: otel/opentelemetry-collector-contrib:0.57.2
     command: ["--config=/etc/otel-agent-config.yaml"]

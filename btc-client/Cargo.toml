@@ -1,0 +1,12 @@
+[package]
+name = "btc-client"
+version = "0.0.1-dev"
+edition = "2023"
+
+[features]
+
+fail-on-warnings = []
+
+[dependencies]
+bdk-cli = "0.27.1"
+
